@@ -10,10 +10,15 @@ public class Main {
         RandomDtoGenerator generator = new RandomDtoGenerator();
         DTO randomDto = generator.generateDto(DTO.class);
 
-        System.out.println(randomDto.getStringField());
-        System.out.println(randomDto.getIntField());
-        System.out.println(randomDto.getDoubleField());
-        System.out.println(randomDto.isBooleanField());
-        System.out.println(randomDto.getCharField());
+        System.out.println("Рандомная строка: " + randomDto.getStringField());
+        System.out.println("Рандомный Integer: " + randomDto.getIntField());
+        System.out.println("Рандомный Long: " + randomDto.getLongField());
+        System.out.println("Рандомный Short: " + randomDto.getShortField());
+        System.out.println("Рандомный Byte: " + randomDto.getByteField());
+        System.out.println("Рандомный Float: " + randomDto.getFloatField());
+        System.out.println("Рандомный Double: " + randomDto.getDoubleField());
+        System.out.println("Рандомный Boolean: " + randomDto.isBooleanField());
+        System.out.println("Рандомный Char: " + randomDto.getCharField());
+
     }
 }

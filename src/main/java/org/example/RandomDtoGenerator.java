@@ -31,6 +31,16 @@ public class RandomDtoGenerator {
                 field.set(dto, generateRandomChar());
             } else if (fieldType.equals(double.class) || fieldType.equals(Double.class)){
                 field.set(dto, random.nextDouble());
+            } else if (fieldType.equals(byte.class) || fieldType.equals(Byte.class)){
+                byte randomByte = (byte) random.nextInt(Byte.MIN_VALUE, Byte.MAX_VALUE + 1);
+                field.set(dto, randomByte);
+            } else if (fieldType.equals(short.class) || fieldType.equals(Short.class)){
+                short randomShort = (short) random.nextInt(Short.MIN_VALUE, Short.MAX_VALUE + 1);
+                field.set(dto, randomShort);
+            } else if (fieldType.equals(long.class) || fieldType.equals(Long.class)){
+                field.set(dto, random.nextLong());
+            } else if (fieldType.equals(float.class) || fieldType.equals(Float.class)){
+                field.set(dto, random.nextFloat());
             }
 
         }
