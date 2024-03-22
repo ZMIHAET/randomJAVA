@@ -8,7 +8,11 @@ import java.util.Random;
 public class RandomDtoGenerator {
 
     private final Random random;
-
+    private static final int leftLimitSTR = 97; // letter 'a'
+    private static final int rightLimitSTR = 122; // letter 'z'
+    private static final int targetStringLength = 10;
+    private static final int leftLimitCHAR = 32; // первый печатный символ ASCII (пробел имеет код 32)
+    private static final int rightLimitCHAR = 126; // последний печатный символ ASCII
     public RandomDtoGenerator() {
         this.random = new Random();
     }
@@ -49,20 +53,14 @@ public class RandomDtoGenerator {
 
 
     private String generateRandomString() {
-        int leftLimit = 97; // letter 'a'
-        int rightLimit = 122; // letter 'z'
-        int targetStringLength = 10;
-        return random.ints(leftLimit, rightLimit + 1)
+        return random.ints(leftLimitSTR, rightLimitSTR + 1)
                 .limit(targetStringLength)
                 .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
                 .toString();
     }
     private char generateRandomChar() {
-        int leftLimit = 32; // первый печатный символ ASCII (пробел имеет код 32)
-        int rightLimit = 126; // последний печатный символ ASCII
-
         // Генерируем случайное число, соответствующее ASCII коду символа в диапазоне от leftLimit до rightLimit
-        int randomAscii = random.nextInt(rightLimit - leftLimit + 1) + leftLimit;
+        int randomAscii = random.nextInt(rightLimitCHAR - leftLimitCHAR + 1) + leftLimitCHAR;
 
         return (char) randomAscii;
     }
